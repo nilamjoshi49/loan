@@ -5,5 +5,8 @@ class Frontend extends ApiFrontend {
 
         $this->add('Layout_Centered');
         // you can also use Layout_Fluid
+        $this->add('jUI');
+        $this->dbconnect();
+
     }
 }
