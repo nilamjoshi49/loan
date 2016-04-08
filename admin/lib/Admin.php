@@ -8,16 +8,16 @@ class Admin extends App_Admin {
         $this->api->menu->addItem('Dashboard', '/');
        
         $this->dbconnect();
-        $this->auth=$this->add('Auth');
-        $this->auth->setModel('User','name');
-        $this->auth->check();
+        // $this->auth=$this->add('Auth');
+        // $this->auth->setModel('User','name');
+        // $this->auth->check();
 
 
        // $m->addItem('LoanAgreement','loanagreement');
-        $m=$this->app->layout->add('Menu_Horizontal',null,'Top_Menu');
-        $m->addItem('Contact','contact');
-        $m->addItem('Profile','loan');
-        $m->addItem('Logout');
+        // $m=$this->app->layout->add('Menu_Horizontal',null,'Top_Menu');
+        // $m->addItem('Contact','contact');
+        // $m->addItem('Profile','loan');
+        // $m->addItem('Logout');
        // $m->addItem('Repayment','repay');
         // $user=$m->addMenu('User');
         // $user->addItem('User');

@@ -1,7 +1,7 @@
 <?php
 
-class page_loan extends Page{
-	public $table="Loan";
+class page_user extends Page{
+	public $table="user";
 
 	function init(){
 		parent::init();
