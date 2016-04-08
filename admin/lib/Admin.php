@@ -6,8 +6,12 @@ class Admin extends App_Admin {
         parent::init();
 
         $this->api->menu->addItem('Dashboard', '/');
-       
+        $this->api->menu->addItem('Contact','contact');
+        $this->app->pathfinder->addLocation([
+            'php'=>'.'])
+        ->setBasePath(dirname($this->app->pathfinder->base_location->base_path).'/shared-lib');       
         $this->dbconnect();
+
         // $this->auth=$this->add('Auth');
         // $this->auth->setModel('User','name');
         // $this->auth->check();
