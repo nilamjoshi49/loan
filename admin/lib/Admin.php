@@ -6,14 +6,23 @@ class Admin extends App_Admin {
         parent::init();
 
         $this->api->menu->addItem('Dashboard', '/');
-        $this->api->menu->addItem('LoanAgreement','loanagreement');
-        $this->api->menu->addItem('Contact','contact');
-        $this->api->menu->addItem('Repayment','repay');
-        $this->api->menu->addItem('Profile','loan');
+       
         $this->dbconnect();
         $this->auth=$this->add('Auth');
         $this->auth->setModel('User','name');
         $this->auth->check();
+
+
+       // $m->addItem('LoanAgreement','loanagreement');
+        $m=$this->app->layout->add('Menu_Horizontal',null,'Top_Menu');
+        $m->addItem('Contact','contact');
+        $m->addItem('Profile','loan');
+        $m->addItem('Logout');
+       // $m->addItem('Repayment','repay');
+        // $user=$m->addMenu('User');
+        // $user->addItem('User');
+        // $user->addItem('Change Password');
+        // $user->addItem('SignUp');
     
     }
 }
