@@ -10,9 +10,9 @@ class Frontend extends App_Frontend{
         $this->add('jUI');
  
 
-        $my_location=$this->app->pathfinder->addLocation([
-        	'php'=>'.'])
-        ->setBasePath(dirname($this->app->pathfinder->base_location->base_path).'/shared-lib');
+        // $my_location=$this->app->pathfinder->addLocation([
+        // 	'php'=>'.'])
+        // ->setBasePath(dirname($this->app->pathfinder->base_location->base_path).'/shared-lib');
 
         $this->dbconnect();
     	//$this->add('Layout_Fluid',null,'Layout');
@@ -24,14 +24,18 @@ class Frontend extends App_Frontend{
     function page_index($p)
     {
     	$m=$this->add('Model_LoanAgreement');
-    	$m->load($this->app->stickyGET('id'));
+    	$m->load($this->api->stickyGET('id'));
     	$p->add('HR');
     	$p->add('H2')->set('Loan Agreement');
     	$t=$this->add('GiTemplate');
     	//$t->LoadTemplateFromString('test {var}...{/} test');
-    	$t->loadTemplateFromString('I <strong> {name}Nilam{/}</strong> agree to recieve
-    	 from loan <strong>{user}Minakshi{/}</strong> and reply 
-    	 the loan by <strong>{date}27-sep-2016{/}</strong>.');
+    	$t->loadTemplateFromString('I <strong> {contact}Nilam{/}</strong> agree to recieve
+    	 loan of <b>{amount} 50.00{/}</b>0 loan  from <strong>{name}Minakshi{/}</strong> and reply 
+    	 the loan by <strong>{next_payment_date}27-sep-2016{/}</strong>.');
+
+
+    	//var_dump($m->get());
+    	$t->set($m->get());
     	//$t['var']= "*"	;
     	//var_dump($t["var"]);
     	$p->add('HR');
@@ -47,23 +51,35 @@ class Frontend extends App_Frontend{
   		// $f->addField('email');
   		// $f->addField('password');
   		// $f->addField('checkbox','Agree terms & conditions');
-  		$b=$p->add('Button')->set([
-  			'Agree terms for Loan',
-  			//using expand the button size pura area ma aavi jase
-  			'expand'=>true,
-  			'swatch'=>'green',
-  			'button'=>'large'
-  			]);
+  		
+  		if($m['is_accepted']){
+		  		$b=$p->add('Button')->set([
+		  			'Loan Terms Accepted',
+		  			//using expand the button size pura area ma aavi jase
+		  			'expand'=>true,
+		  			'swatch'=>'gray',
+		  			'button'=>'large'
+		  			]);
+  		}else{
+  				$b=$p->add('Button')->set([
+  					'Agree to terms Of Loan',
+  					'expand'=>true,
+  					'swatch'=>'green',
+  					'button'=>'large'
+  					]);
+  	
+  	
+	  		$b->onClick(function(){
+	  			return "OK";
+	  		});
+  		}
 
-  		$f->addSubmit();
+  		//$f->addSubmit();
   		// if($_POST){
   		// 	echo "Ok";
   		// 	exit;
   		// }
-  		$f->onSubmit(function (){
-  			return "OK";
-
-  		});
+  		
 
 
     	//$p->add('H1')->set('Nilam');
