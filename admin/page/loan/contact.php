@@ -6,7 +6,7 @@ class page_contact extends Page{
 		parent::init();
 
 		//$this->add('CRUD')->setModel('LoanAgreement');
-		$this->add('CRUD')->setModel('Contact');
+		$this->add('CRUD')->setModel('Loan_Contact');
 		//$this->add('CRUD')->setModel('Repayment');
 
 	}

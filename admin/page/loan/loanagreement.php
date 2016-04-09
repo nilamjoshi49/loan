@@ -6,6 +6,6 @@ class page_loanagreement extends Page{
 	function init(){
 		parent::init();
 
-		$this->add('CRUD')->setModel('LoanAgreement');
+		$this->add('CRUD')->setModel('Loan_LoanAgreement');
 	}
 }
