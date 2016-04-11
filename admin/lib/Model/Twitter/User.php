@@ -12,6 +12,7 @@ class Model_Twitter_User extends SQL_Model{
 
 		$this->hasMany('Twitter_Tweet','owner_id',null,'Following_id');
 		$this->hasMany('Twitter_Follow');
+		$this->hasMany('Twitter_Tweet');
 
 		$this->addExpression('My Followers')->set(function($m){
 			return $m->refSQL('Twitter_Tweet')->count();
@@ -21,7 +22,7 @@ class Model_Twitter_User extends SQL_Model{
 			return $m->refSQL('Twitter_Follow')->count();
 		});
 
-		$this->hasMany('Twitter_Tweet');
+		
 
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}

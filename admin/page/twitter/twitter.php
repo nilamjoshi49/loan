@@ -4,8 +4,13 @@ class page_twitter_twitter extends Page{
 	function init(){
 		parent::init();
 
-		$u=$this->add('CRUD')->setModel('Twitter_User');
-		$t=$this->add('CRUD')->setModel('Twitter_Tweet');
-		$f=$this->add('CRUD')->setModel('Twitter_Follow');
+		
+		$this->add('CRUD')->addClass('atk-push')->setModel('Twitter_User');
+		$t=$this->add('CRUD')->addClass('atk-push')->setModel('Twitter_Tweet');
+		$this->add('CRUD')->addClass('atk-push')->setModel('Twitter_Follow');
+	
+
+	
+
 	}
 }
