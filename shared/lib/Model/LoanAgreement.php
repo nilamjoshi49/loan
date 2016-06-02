@@ -6,7 +6,7 @@ class Model_LoanAgreement extends SQL_Model {
     function init() {
         parent::init();
 
-        $this->hasOne('User');
+        $this->hasOne('User1');
         $this->hasOne('Contact');
 
         $this->addField('type');

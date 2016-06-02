@@ -10,7 +10,7 @@ class Model_Contact extends SQL_Model {
         $this->addField('email');
         $this->addField('address');
         $this->addField('phone');
-        $this->hasOne('User');
+        $this->hasOne('User1');
 
         $this->add('dynamic_model/Controller_AutoCreator');
     }
