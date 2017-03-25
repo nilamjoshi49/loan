@@ -1,6 +1,6 @@
 <?php
 
-class Model_User extends SQL_Model {
+class Model_User1 extends SQL_Model {
     public $table='user';
 
     function init() {

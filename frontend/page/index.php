@@ -3,6 +3,8 @@ class page_index extends Page{
     
     function init(){
         parent::init();
+        // throw new \Exception("Error Processing Request", 1);
+        
 
         $form = $this->add('Form',null,'form');
         

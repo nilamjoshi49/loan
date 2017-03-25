@@ -12,9 +12,9 @@ class Admin extends App_Admin {
         // ->setBasePath(dirname($this->app->pathfinder->base_location->base_path).'/shared-lib');       
         $this->dbconnect();
 
-        $this->auth=$this->add('Auth');
-        $this->auth->setModel('Quiz_User','username','password');
-        $this->auth->check();
+        // $this->auth=$this->add('Auth');
+        // $this->auth->setModel('User','username','password');
+        // $this->auth->check();
         
         // // $this->auth->setModel('Twitter_User','name');
         // // $this->auth->check();
